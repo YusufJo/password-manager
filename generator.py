@@ -1,5 +1,5 @@
 import string
-import random
+import secrets
 
 # def password_generator(length=8, upper=string.ascii_uppercase, lower=string.ascii_lowercase, digits=string.digits, punctuation=string.punctuation):
 # return ''.join(random.SystemRandom().choice((string.ascii_uppercase if allow_upper else '') + (string.ascii_lowercase if allow_lower else '') + (string.digits if allow_numbers else '') + (string.punctuation if allow_symbols else '')) for i in range(length))
@@ -21,7 +21,7 @@ def password_generator(length=16, allow_upper=True, allow_lower=True, allow_digi
             pass
 
 
-    return ''.join(random.SystemRandom().choice(pass_elements) for i in range(int(length)))
+    return ''.join(secrets.SystemRandom().choice(pass_elements) for i in range(int(length)))
     # return ''.join(random.SystemRandom().choice(upper + lower + digits + punctuation) for i in range(length))
 
 
