@@ -1,5 +1,9 @@
+import string
+from typing import List
+
+
 class GeneratorConfig:
-    MIN_LENGTH = 4
+    MIN_LENGTH = 16
     MAX_LENGTH = 100
 
     def __init__(self, length=16, allow_lower=True, allow_upper=True, allow_punct=True, allow_numeric=True):
@@ -10,7 +14,7 @@ class GeneratorConfig:
         self.allow_lower = allow_lower
         self.allow_upper = allow_upper
         self.allow_punct = allow_punct
-        self.allow_numeric = allow_numeric
+        self.allow_digits = allow_numeric
 
     def __validate_length(self, value: int) -> None:
         if value < self.MIN_LENGTH:
@@ -22,3 +26,15 @@ class GeneratorConfig:
     def __validate_letter_case(allow_lower: bool, allow_upper: bool) -> None:
         if not allow_lower and not allow_upper:
             raise Exception('password must contain letters in upper-case, lower-case, or both')
+
+    def c_type_styles(self) -> List[str]:
+        result: List[str] = []
+        if self.allow_upper:
+            result.append(string.ascii_uppercase)
+        if self.allow_lower:
+            result.append(string.ascii_lowercase)
+        if self.allow_punct:
+            result.append(string.punctuation)
+        if self.allow_digits:
+            result.append(string.digits)
+        return result
