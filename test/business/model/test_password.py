@@ -15,7 +15,7 @@ class TestPasswordModel(unittest.TestCase):
         self.assertEqual(hasattr(self.sut, 'uid'), True)
 
     def test_has_name(self):
-        self.assertEqual(hasattr(self.sut, 'name'), True)
+        self.assertEqual(hasattr(self.sut, 'title'), True)
 
     def test_has_password(self):
         self.assertEqual(hasattr(self.sut, 'pass_phrase'), True)

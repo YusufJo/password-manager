@@ -4,5 +4,5 @@ from dataclasses import dataclass
 @dataclass
 class Password:
     uid: str
-    name: str
+    title: str
     pass_phrase: str
